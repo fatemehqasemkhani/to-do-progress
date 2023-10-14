@@ -37,9 +37,9 @@ export default function GroupTasks({ data }: GroupTasksProps) {
   };
 
   return (
-    <div className="md:w-[50%] w-[100%] p-5 m-2 rounded-lg bg-white border border-slate-300 border-solid">
-      <div className="px-[20px] mb-[20px]">
-        <h2 className="mt-[10px] mb-[20px] text-l font-bold mx-auto">Lodgify Group Tasks</h2>
+    <div className="m-2 w-[100%] rounded-lg border border-solid border-slate-300 bg-white p-5 md:w-[50%]">
+      <div className="mb-[20px] px-[20px]">
+        <h2 className="mx-auto mb-[20px] mt-[10px] text-lg font-bold">Lodgify Group Tasks</h2>
         <ProgressBar data={groupTasksData} />
       </div>
       <Collapse handleUpdateData={handleUpdateData} data={groupTasksData} />

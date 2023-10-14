@@ -39,10 +39,10 @@ export default function ProgressBar({ data }: ProgressBarProps) {
   const progressBarBackgroundColor = progress === 0 ? "bg-transparent" : "bg-custom-green";
 
   return (
-    <div className="h-[20px] relative block w-full rounded-full bg-custom-light-green">
+    <div className="relative block h-[20px] w-full rounded-full bg-custom-light-green">
       <div
         style={{ width: progressBarWidth }}
-        className={`${progressBarBackgroundColor} text-right text-white text-xs leading-5 pr-[10px] transition-width duration-300 flex items-center justify-center rounded-full h-[20px] bg-custom-green`}
+        className={`${progressBarBackgroundColor} transition-width flex h-[20px] items-center justify-center rounded-full bg-custom-green pr-[10px] text-right text-xs leading-5 text-white duration-300`}
       >
         {returnPercentage()}
       </div>

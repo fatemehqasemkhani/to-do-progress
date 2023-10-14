@@ -7,9 +7,18 @@ const App = () => {
 
   const fetchData = async () => {
     await fetch(groupsApi)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
       .then((data) => {
         setGroupsData(data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -18,7 +27,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center justify-center">
       <GroupTasks data={groupsData} />
     </div>
   );

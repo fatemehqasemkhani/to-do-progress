@@ -15,7 +15,7 @@ export default function Checkbox({ data, handleChange }: CheckboxProps) {
         onChange={() => handleChange(id)}
         className="h-[16px] w-[16px] cursor-pointer rounded border-gray-300 bg-white text-custom-green focus:ring-0"
       />
-      <label className="inline-block font-light text-sm pl-[15px]">{description}</label>
+      <label className="inline-block pl-[15px] text-sm font-light">{description}</label>
     </div>
   );
 }
