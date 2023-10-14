@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import GroupTasks from "./components/GroupTasks";
+import { groupsApi } from "./api";
 
-function App() {
+const App = () => {
+  const [groupsData, setGroupsData] = useState([]);
+
+  const fetchData = async () => {
+    await fetch(groupsApi)
+      .then((response) => response.json())
+      .then((data) => {
+        setGroupsData(data);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
-      <h1>Technical Challenge</h1>
+    <div className="flex justify-center items-center">
+      <GroupTasks data={groupsData} />
+    </div>
   );
-}
+};
 
 export default App;
