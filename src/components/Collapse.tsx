@@ -47,7 +47,7 @@ export default function Collapse({ data, handleUpdateData }: CollapseProps) {
             <span className="flex items-center text-sm text-gray-400">
               {activeKey === group.groupId ? "Show" : "Hide"}
               <FiChevronDown
-                className={`ml-[5px]${
+                className={`ml-[5px] ${
                   activeKey === group.groupId ? "rotate-180" : "rotate-0"
                 } duration-500 transition-transform`}
                 size={20}
