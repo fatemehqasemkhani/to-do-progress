@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Groups, Task } from "../types/groups";
 
 interface ProgressBarProps {
@@ -18,25 +18,25 @@ export default function ProgressBar({ data }: ProgressBarProps) {
       );
     }, 0);
   };
-
   const [progress, setProgress] = useState(calculateProgressBarValue());
+  const progressbarValue = useMemo(() => calculateProgressBarValue(), [progress]);
 
   useEffect(() => {
     setProgress(calculateProgressBarValue());
   }, [data]);
 
   const returnPercentage = () => {
-    if (progress === 100) {
+    if (progressbarValue === 100) {
       return "100%";
-    } else if (progress === 0) {
+    } else if (progressbarValue === 0) {
       return "";
     } else {
-      return `${progress.toFixed(2)}%`;
+      return `${progressbarValue.toFixed(2)}%`;
     }
   };
 
-  const progressBarWidth = `${progress.toFixed(2)}%`;
-  const progressBarBackgroundColor = progress === 0 ? "bg-transparent" : "bg-custom-green";
+  const progressBarWidth = `${progressbarValue.toFixed(2)}%`;
+  const progressBarBackgroundColor = progressbarValue === 0 ? "bg-transparent" : "bg-custom-green";
 
   return (
     <div className="relative block h-[20px] w-full rounded-full bg-custom-light-green">
