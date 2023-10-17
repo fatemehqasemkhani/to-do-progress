@@ -36,7 +36,7 @@ export default function Collapse({ data, handleUpdateData }: CollapseProps) {
         <div key={group.groupId} className="border-b last:border-b-0">
           <button
             className={`${
-              activeKey === group.groupId ?? "text-custom-green"
+              activeKey === group.groupId ? "text-custom-green" : "text-gray-800"
             } flex w-full items-center justify-between rounded-lg bg-white p-4 text-left text-base font-light transition duration-300 hover:bg-white`}
             onClick={() => onChange(group.groupId)}
           >

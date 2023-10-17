@@ -42,7 +42,7 @@ export default function ProgressBar({ data }: ProgressBarProps) {
     <div className="relative block h-[20px] w-full rounded-full bg-custom-light-green">
       <div
         style={{ width: progressBarWidth }}
-        className={`${progressBarBackgroundColor} transition-width flex h-[20px] items-center justify-center rounded-full bg-custom-green pr-[10px] text-right text-xs leading-5 text-white duration-300`}
+        className={`${progressBarBackgroundColor} transition-width flex h-[20px] items-center justify-end rounded-full bg-custom-green pr-[10px] text-right text-xs leading-5 text-white duration-300`}
       >
         {returnPercentage()}
       </div>

@@ -39,7 +39,7 @@ export default function GroupTasks({ data }: GroupTasksProps) {
   return (
     <div className="m-2 w-[100%] rounded-lg border border-solid border-slate-300 bg-white p-5 md:w-[50%]">
       <div className="mb-[20px] px-[20px]">
-        <h2 className="mx-auto mb-[20px] mt-[10px] text-lg font-bold">Lodgify Group Tasks</h2>
+        <h2 className="mx-auto mb-[20px] mt-[10px] text-lg font-bold">To Do Progress</h2>
         <ProgressBar data={groupTasksData} />
       </div>
       <Collapse handleUpdateData={handleUpdateData} data={groupTasksData} />
