@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import Checkbox from "./Checkbox";
+import Button from "./Button";
 import { Groups, Task } from "../types/groups";
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
@@ -29,6 +30,18 @@ export default function Collapse({ data, handleUpdateData }: CollapseProps) {
     },
     [data, handleUpdateData],
   );
+
+  const multiSelect = (action: string) => {
+    const updatedData = data.map((group: Groups) => ({
+      ...group,
+      tasks: group.tasks.map((task: Task) => ({
+        ...task,
+        checked: action === "select",
+      })),
+    }));
+
+    handleUpdateData(updatedData);
+  };
 
   return (
     <div className="rounded-lg border">
@@ -67,6 +80,10 @@ export default function Collapse({ data, handleUpdateData }: CollapseProps) {
           </div>
         </div>
       ))}
+      <Button className="mx-[10px]" onClick={() => multiSelect("select")}>
+        Select All
+      </Button>
+      <Button onClick={() => multiSelect("deselect")}>Deselect All</Button>
     </div>
   );
 }
