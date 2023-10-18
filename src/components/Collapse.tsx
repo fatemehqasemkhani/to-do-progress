@@ -31,12 +31,12 @@ export default function Collapse({ data, handleUpdateData }: CollapseProps) {
     [data, handleUpdateData],
   );
 
-  const multiSelect = (action: string) => {
+  const multiSelect = (checked: boolean) => {
     const updatedData = data.map((group: Groups) => ({
       ...group,
       tasks: group.tasks.map((task: Task) => ({
         ...task,
-        checked: action === "select",
+        checked: checked,
       })),
     }));
 
@@ -80,10 +80,10 @@ export default function Collapse({ data, handleUpdateData }: CollapseProps) {
           </div>
         </div>
       ))}
-      <Button className="mx-[10px]" onClick={() => multiSelect("select")}>
+      <Button className="mx-[10px]" onClick={() => multiSelect(true)}>
         Select All
       </Button>
-      <Button onClick={() => multiSelect("deselect")}>Deselect All</Button>
+      <Button onClick={() => multiSelect(false)}>Deselect All</Button>
     </div>
   );
 }
